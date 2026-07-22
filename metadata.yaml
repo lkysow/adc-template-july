@@ -1,0 +1,40 @@
+apiVersion: blueprints.cloud.google.com/v1alpha1
+kind: BlueprintMetadata
+metadata:
+  name: template
+spec:
+  info:
+    title: Template
+    description:
+      tagline: Template
+    actuationTool:
+      flavor: Terraform
+      version: ">= 1.3"
+  interfaces:
+    variables:
+    - name: bucket_name
+      description: The name of the GCS bucket
+      varType: string
+      required: true
+    - name: location
+      description: The location/region for the GCS bucket
+      varType: string
+      defaultValue: US
+    - name: reasoning_engine_display_name
+      description: The display name of the Vertex AI Agent Engine
+      varType: string
+      defaultValue: agent-engine
+    - name: reasoning_engine_region
+      description: The region for the Vertex AI Agent Engine
+      varType: string
+      defaultValue: us-central1
+    outputs:
+    - name: bucket_name
+      description: The name of the created storage bucket
+    - name: bucket_url
+      description: The self-link URL of the created storage bucket
+    - name: agent_engine_name
+      description: The resource name of the Agent Engine
+    - name: agent_engine_id
+      description: The ID of the Agent Engine
+
